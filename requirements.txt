@@ -1,9 +1,9 @@
 tensorflow==2.20.0
-pandas 
-numpy 
-scikit-learn
-tensorboard
-matplotlib
-streamlit
-scikeras
-plotly 
+numpy>=2.0,<3.0
+pandas>=2.2.2
+scikit-learn>=1.5.0
+tensorboard==2.20.0
+matplotlib>=3.9.0
+streamlit>=1.38.0
+scikeras>=0.13.0
+plotly>=5.24.0
