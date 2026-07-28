@@ -148,7 +148,10 @@ if st.button("Analyze sentiment"):
         time.sleep(0.2)
         try:
             x = preprocess_text(review_text, word_index)
-            prob = float(model.predict(x, verbose=0)[0][0])
+            prediction = model.predict(x, verbose=0)
+            st.write("Raw model output:", prediction)
+
+            prob = float(prediction[0][0])
         except Exception as e:
             st.error("❌ Prediction failed. Please try again with different text.")
             st.exception(e)
