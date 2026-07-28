@@ -56,9 +56,28 @@ def load_sentiment_model():
 
 def preprocess_text(text: str, word_index: dict) -> np.ndarray:
     tokens = text.lower().split()
-    encoded = [word_index.get(w, 2) + 3 for w in tokens]
-    encoded = np.clip(encoded, 0, NUM_WORDS - 1)
-    return sequence.pad_sequences([encoded], maxlen=MAX_LEN)
+
+    encoded = []
+
+    for word in tokens:
+        index = word_index.get(word)
+
+        if index is None:
+            index = 2  # Unknown word
+        else:
+            index = index + 3  # IMDB reserved token offset
+
+        if index < NUM_WORDS:
+            encoded.append(index)
+        else:
+            encoded.append(2)
+
+    return sequence.pad_sequences(
+        [encoded],
+        maxlen=MAX_LEN,
+        padding="pre",
+        truncating="pre"
+    )
 
 def classify_sentiment(score: float) -> str:
     if score > 0.6:
