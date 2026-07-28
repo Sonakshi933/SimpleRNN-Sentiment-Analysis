@@ -80,9 +80,9 @@ def preprocess_text(text: str, word_index: dict) -> np.ndarray:
     )
 
 def classify_sentiment(score: float) -> str:
-    if score < 0.001:
+    if score < 0.02:
         return "😊 Positive"
-    elif score > 0.02:
+    elif score > 0.025:
         return "🙁 Negative"
     else:
         return "😐 Mixed"
