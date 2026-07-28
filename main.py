@@ -84,7 +84,7 @@ def classify_sentiment(score: float) -> str:
         return "😊 Mixed"
     elif score > 0.02:
         return "🙁 Negative"
-    elif:
+    else:
         return "😐 Positive"
 
 def sentiment_visual(score):
