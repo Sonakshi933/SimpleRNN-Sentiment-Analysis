@@ -46,7 +46,8 @@ def load_sentiment_model():
         model = load_model("simple_rnn_imdb.h5")
         return model
     except Exception as e:
-        st.error("❌ Could not load the model file 'simple_rnn_imdb.h5'. Please make sure it exists in the working directory.")
+        st.error("❌ Model loading failed!")
+        st.exception(e)
         st.stop()
 
 # -----------------------------------------------------------------------------
