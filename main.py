@@ -81,11 +81,11 @@ def preprocess_text(text: str, word_index: dict) -> np.ndarray:
 
 def classify_sentiment(score: float) -> str:
     if score < 0.01:
-        return "😊 Mixed"
+        return "😊😐 Mixed"
     elif score > 0.02:
         return "🙁 Negative"
     else:
-        return "😐 Positive"
+        return "😊 Positive"
 
 def sentiment_visual(score):
     fig = go.Figure(go.Indicator(
