@@ -43,7 +43,7 @@ def load_word_index():
 @st.cache_resource(show_spinner=False)
 def load_sentiment_model():
     try:
-        model = load_model("simple_rnn_imdb.h5")
+        model = load_model("simple_rnn_imdb.keras")
         return model
     except Exception as e:
         st.error("❌ Model loading failed!")
